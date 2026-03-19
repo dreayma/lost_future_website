@@ -1,11 +1,14 @@
 /**
  * Home Page - Lost Future Website
  * 
- * Design Philosophy: Simple dark-themed layout with clean typography
+ * Design Philosophy: Melancholic dark blue atmosphere with rain effect
  * - Hero section with title
  * - Biography section with alternating image/text layout
- * - Easy to add new biographies by duplicating biography items
+ * - Square images (strictly square aspect ratio)
+ * - Rain animation overlay
  */
+
+import RainEffect from "@/components/RainEffect";
 
 export default function Home() {
   // Biography data - easy to add new entries
@@ -34,9 +37,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      {/* Rain Effect */}
+      <RainEffect />
+
       {/* Hero Section */}
-      <section className="hero-section min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-card">
+      <section className="hero-section min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-card relative z-0">
         <div className="container px-4 md:px-8">
           <div className="text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
@@ -50,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* Biographies Section */}
-      <section className="biographies-section bg-background">
+      <section className="biographies-section bg-background relative z-0">
         <div className="container px-4 md:px-8 py-20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
             Биографии
@@ -62,13 +68,13 @@ export default function Home() {
           {biographies.map((bio) => (
             <div
               key={bio.id}
-              className={`biography-item-${bio.id} grid grid-cols-1 md:grid-cols-2 gap-0 min-h-96`}
+              className={`biography-item-${bio.id} grid grid-cols-1 md:grid-cols-2 gap-0`}
             >
-              {/* Image Container */}
+              {/* Image Container - Strictly Square */}
               <div
                 className={`image-container ${bio.imagePosition === "right" ? "md:order-2" : "md:order-1"}`}
               >
-                <div className="w-full h-full bg-card overflow-hidden">
+                <div className="aspect-square bg-card overflow-hidden w-full">
                   {bio.imageUrl ? (
                     <img
                       src={bio.imageUrl}
@@ -85,7 +91,7 @@ export default function Home() {
 
               {/* Text Container */}
               <div
-                className={`text-container flex flex-col justify-center px-6 md:px-12 py-8 md:py-0 bg-card ${
+                className={`text-container flex flex-col justify-center px-6 md:px-12 py-8 md:py-12 bg-card ${
                   bio.imagePosition === "right" ? "md:order-1" : "md:order-2"
                 }`}
               >
