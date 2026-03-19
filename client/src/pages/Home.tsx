@@ -42,7 +42,7 @@ export default function Home() {
       <RainEffect />
 
       {/* Hero Section */}
-      <section className="hero-section min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-card relative z-0">
+      <section className="hero-section min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-card relative z-20">
         <div className="container px-4 md:px-8">
           <div className="text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ fontFamily: "var(--font-display)" }}>
@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* Biographies Section */}
-      <section className="biographies-section bg-background relative z-0">
+      <section className="biographies-section bg-background relative z-20">
         <div className="container px-4 md:px-8 py-20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16" style={{ fontFamily: "var(--font-display)" }}>
             Биографии

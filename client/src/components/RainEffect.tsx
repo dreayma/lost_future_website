@@ -27,15 +27,15 @@ export default function RainEffect() {
       speed: number;
     }> = [];
 
-    // Create raindrops
+    // Create raindrops - much fewer and more sparse
     const createRaindrops = () => {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 30; i++) {
         raindrops.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          length: Math.random() * 15 + 10,
-          opacity: Math.random() * 0.5 + 0.2,
-          speed: Math.random() * 3 + 2,
+          length: Math.random() * 12 + 8,
+          opacity: Math.random() * 0.15 + 0.05,
+          speed: Math.random() * 2 + 1,
         });
       }
     };
@@ -44,13 +44,13 @@ export default function RainEffect() {
 
     // Animation loop
     const animate = () => {
-      // Clear canvas with slight fade effect
-      ctx.fillStyle = "rgba(15, 27, 46, 0.1)";
+      // Clear canvas with very subtle fade
+      ctx.fillStyle = "rgba(15, 27, 46, 0.02)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Draw and update raindrops
-      ctx.strokeStyle = "rgba(197, 211, 224, 0.6)";
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = "rgba(197, 211, 224, 0.4)";
+      ctx.lineWidth = 0.8;
 
       raindrops.forEach((drop) => {
         // Draw raindrop
@@ -85,7 +85,7 @@ export default function RainEffect() {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 10 }}
+      style={{ zIndex: 5 }}
     />
   );
 }
