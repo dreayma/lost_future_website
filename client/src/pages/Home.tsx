@@ -1,10 +1,10 @@
 /**
  * Home Page - Lost Future Website
  * 
- * Design Philosophy: Melancholic dark blue atmosphere with engaging biography section
+ * Design Philosophy: Melancholic dark blue atmosphere with alternating biography layout
  * - Hero section with title
- * - Dynamic biography section with cards and hover effects
- * - Square images with modern styling
+ * - Biography section with alternating image/text layout
+ * - Square images on left/right alternating
  */
 
 export default function Home() {
@@ -63,53 +63,53 @@ export default function Home() {
             <div className="w-16 h-1 bg-accent rounded-full"></div>
           </div>
 
-          {/* Biography Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
-            {biographies.map((bio, index) => (
-              <div
-                key={bio.id}
-                className={`biography-card-${bio.id} group`}
-              >
-                {/* Card Container */}
-                <div className="bg-card rounded-xl overflow-hidden border border-border hover:border-accent transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 transform hover:-translate-y-2">
+          {/* Biography Items - Alternating Layout */}
+          <div className="space-y-20">
+            {biographies.map((bio, index) => {
+              const isEven = index % 2 === 0;
+              
+              return (
+                <div
+                  key={bio.id}
+                  className={`biography-item-${bio.id} grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center`}
+                >
                   {/* Image Container - Strictly Square */}
-                  <div className="aspect-square bg-muted overflow-hidden relative">
-                    {bio.imageUrl ? (
-                      <img
-                        src={bio.imageUrl}
-                        alt={bio.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted to-secondary">
-                        <span className="text-muted-foreground text-center px-4">
-                          Изображение здесь
-                        </span>
-                      </div>
-                    )}
-                    
-                    {/* Overlay accent */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className={`image-container ${isEven ? "md:order-1" : "md:order-2"}`}>
+                    <div className="aspect-square bg-card rounded-lg overflow-hidden border border-border hover:border-accent transition-all duration-300">
+                      {bio.imageUrl ? (
+                        <img
+                          src={bio.imageUrl}
+                          alt={bio.name}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted to-secondary">
+                          <span className="text-muted-foreground text-center px-4">
+                            Изображение здесь
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {/* Text Container */}
-                  <div className="p-6 md:p-8">
+                  <div className={`text-container ${isEven ? "md:order-2" : "md:order-1"}`}>
                     <h3 
-                      className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-accent transition-colors duration-300" 
+                      className="text-3xl md:text-4xl font-bold mb-4 hover:text-accent transition-colors duration-300" 
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {bio.name}
                     </h3>
                     <p 
-                      className="text-base md:text-lg text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300" 
+                      className="text-lg md:text-xl text-muted-foreground leading-relaxed" 
                       style={{ fontFamily: "var(--font-body)" }}
                     >
                       {bio.description}
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
