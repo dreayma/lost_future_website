@@ -23,12 +23,16 @@ export default function Home() {
   //      birthDate: "15.03.1990",                  // Дата рождения (в формате ДД.МММ.ГГГГ)
   //      deathDate: "20.03.2024",                  // Дата смерти (в формате ДД.МММ.ГГГГ)
   //      description: "Описание биографии...",     // Текст с информацией о человеке
-  //      imageUrl: "https://example.com/image.jpg", // URL изображения (квадратное)
+  //      imageUrl: "/images/soldier-1.jpeg",       // Путь к картинке в папке public/images
   //    }
   // 3. Сохраните файл - новая биография появится на сайте автоматически
   // ============================================================================
 
   // Biography data - ДОБАВЛЯЙТЕ НОВЫЕ БИОГРАФИИ СЮДА
+  // ИНСТРУКЦИЯ ПО ДОБАВЛЕНИЮ КАРТИНОК:
+  // 1. Поместите картинку в папку: client/public/images/
+  // 2. В поле imageUrl вставьте путь: "/images/имя-файла.jpeg"
+  // 3. Картинка должна быть квадратной (одинаковая ширина и высота)
   const biographies = [
     {
       id: 1,
@@ -36,7 +40,7 @@ export default function Home() {
       birthDate: "15.03.1990",
       deathDate: "20.03.2024",
       description: "Добавьте описание здесь",
-      imageUrl: "", // Вставьте URL изображения
+      imageUrl: "/images/soldier-1.jpeg", // Путь к картинке в папке public/images
     },
     {
       id: 2,
@@ -44,7 +48,7 @@ export default function Home() {
       birthDate: "10.05.1985",
       deathDate: "25.03.2024",
       description: "Добавьте описание здесь",
-      imageUrl: "", // Вставьте URL изображения
+      imageUrl: "/images/soldier-2.jpeg", // Путь к картинке в папке public/images
     },
     {
       id: 3,
@@ -52,7 +56,7 @@ export default function Home() {
       birthDate: "22.07.1992",
       deathDate: "30.03.2024",
       description: "Добавьте описание здесь",
-      imageUrl: "", // Вставьте URL изображения
+      imageUrl: "/images/soldier-3.jpeg", // Путь к картинке в папке public/images
     },
     {
       id: 4,
@@ -60,7 +64,7 @@ export default function Home() {
       birthDate: "08.11.1988",
       deathDate: "05.04.2024",
       description: "Добавьте описание здесь",
-      imageUrl: "", // Вставьте URL изображения
+      imageUrl: "/images/soldier-4.jpeg", // Путь к картинке в папке public/images
     },
   ];
 
