@@ -54,7 +54,7 @@
   --chart-4: #999999;
   --chart-5: #aaaaaa;
   --radius: 0.65rem;
-  --background: #0f1b2e;
+  --background: #000000;
   --foreground: #c5d3e0;
   --card: #1a2d42;
   --card-foreground: #c5d3e0;
@@ -85,7 +85,7 @@
   --primary-foreground: #ffffff;
   --sidebar-primary: #333333;
   --sidebar-primary-foreground: #ffffff;
-  --background: #0f1b2e;
+  --background: #000000;
   --foreground: #c5d3e0;
   --card: #1a2d42;
   --card-foreground: #c5d3e0;
