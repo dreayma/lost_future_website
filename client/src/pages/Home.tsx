@@ -73,7 +73,7 @@ export default function Home() {
   ];
 
   // Optional: Set background image for the entire page
-  const backgroundImageUrl = "/images/background.jpg";
+  const backgroundImageUrl = "";
 
   // State for search
   const [searchQuery, setSearchQuery] = useState("");
@@ -89,26 +89,20 @@ export default function Home() {
   );
 
   return (
-    <div
-      className="min-h-screen bg-background text-foreground"
-      style={{
-        backgroundImage: backgroundImageUrl
-          ? `url(${backgroundImageUrl})`
-          : "none",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      {/* Optional: Dark overlay for background image */}
-      {backgroundImageUrl && (
-        <div className="fixed inset-0 bg-black/80 pointer-events-none"></div>
-      )}
-
+    <div className="min-h-screen bg-background text-foreground">
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="hero-section min-h-screen flex items-center justify-center">
-          <div className="container px-4 md:px-8">
+        <section
+          className="hero-section min-h-dvh flex items-center justify-center relative"
+          style={{
+            backgroundImage: "url(/images/background.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="container px-4 md:px-8 relative z-10">
             <div className="text-center">
               <h1
                 className="text-6xl md:text-8xl font-bold mb-12 tracking-tight"
